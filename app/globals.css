@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #F3F5F9;
+  --surface: #FFFFFF;
+  --surface-2: #F7F8FB;
+  --border: #E8EAF1;
+}
+html.dark {
+  --bg: #0C0E13;
+  --surface: #161922;
+  --surface-2: #1C202B;
+  --border: #262B37;
+}
+
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body { font-family: "Inter", sans-serif; color: #151824; }
+html.dark body { color: #F2F3F7; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.page-anim { animation: fadeIn 0.25s ease; }
+
+@keyframes slideUp { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-slide { animation: slideUp 0.25s ease; }
+
+@keyframes pop { 0% { transform: scale(0.7); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+.pop { animation: pop 0.25s ease; }
