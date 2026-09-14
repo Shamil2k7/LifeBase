@@ -3,7 +3,8 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-dotenv.config({ path: ".env.local" });
+dotenv.config();
+dotenv.config({ path: ".env.local", override: true });
 
 const UserSchema = new mongoose.Schema({}, { strict: false, timestamps: true });
 const TripSchema = new mongoose.Schema({}, { strict: false, timestamps: true });
@@ -18,7 +19,7 @@ const Event = mongoose.models.Event || mongoose.model("Event", EventSchema);
 async function run() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
-    console.error("MONGODB_URI is not set. Add it to .env.local first.");
+    console.error("MONGODB_URI is not set. Add it to .env or .env.local first.");
     process.exit(1);
   }
   await mongoose.connect(uri);
